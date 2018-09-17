@@ -9,14 +9,15 @@ OBJECTS=$(foreach obj, $(SOURCES), $(BIN_DIR)/$(obj:.c=.o))
 all: init $(BIN_DIR)/$(APP)
 
 $(BIN_DIR)/$(APP): $(OBJECTS)
+	@echo creating executable $@
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $(BIN_DIR)/$(APP)
 
 $(BIN_DIR)/%.o: %.c
+	@echo creating object $@
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 init:
 	mkdir -p $(BIN_DIR)
-	@echo $(OBJECTS)
 
 clean:
 	rm -f $(BIN_DIR)/$(APP) $(OBJECTS)
