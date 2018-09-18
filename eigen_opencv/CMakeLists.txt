@@ -24,3 +24,8 @@ add_executable(demo demo.cpp)
 # we need to link against OpenCV; in below, the ${OpenCV_LIBS} variable will
 # only include the libraries explicitly listed as required components above
 target_link_libraries(demo ${OpenCV_LIBS})
+
+# I like to turn this on to produce a compile_commands.json file. Useful for
+# debugging compilation and for many C++ autocomplete and code navigation tools
+# (e.g. ycmd - https://github.com/Valloric/ycmd )
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
